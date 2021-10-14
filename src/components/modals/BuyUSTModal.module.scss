@@ -1,0 +1,33 @@
+@import '../../styles/colors';
+
+.exchange {
+  margin-bottom: 32px;
+}
+
+.subtitle {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: solid 1px $desaturated400;
+  &:hover {
+    border: solid 1px $primary400;
+  }
+  > p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
