@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import '../../index.scss';
 import BasicModal from '../common/BasicModal';
@@ -40,7 +40,7 @@ const exchangeResources: Resource[] = [
   },
 ];
 
-const getFlatResources = (transakApiKey?: string): Resource[] => {
+const getFiatResources = (transakApiKey?: string): Resource[] => {
   return [
     {
       name: 'Transak',
@@ -54,23 +54,16 @@ const getFlatResources = (transakApiKey?: string): Resource[] => {
 
 interface Props {
   transakApiKey?: string;
+  onClose: () => void;
+  open: boolean;
+  title?: string;
 }
 
-const BuyUSTModal = ({ transakApiKey }: Props) => {
-  const [open, setOpen] = useState(false);
-
-  const withFlatResources = getFlatResources(transakApiKey);
+const BuyUSTModal = ({ transakApiKey, onClose, open, title }: Props) => {
+  const withFiatResources = getFiatResources(transakApiKey);
   return (
     <>
-      <button
-        type="button"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Buy UST
-      </button>
-      <BasicModal onClose={() => setOpen(false)} open={open} title="Buy UST">
+      <BasicModal onClose={onClose} open={open} title={title}>
         <>
           <section className={styles.exchange}>
             <p className={styles.subtitle}>Exchanges</p>
@@ -86,12 +79,12 @@ const BuyUSTModal = ({ transakApiKey }: Props) => {
             </div>
           </section>
           <section>
-            <p className={styles.subtitle}>With Flat</p>
+            <p className={styles.subtitle}>With Fiat</p>
             <div className={styles.cardList}>
-              {withFlatResources.map((resource: Resource, i: number) => {
+              {withFiatResources.map((resource: Resource, i: number) => {
                 return (
                   <Card
-                    key={`flat-resource-${i.toString()}`}
+                    key={`fiat-resource-${i.toString()}`}
                     resource={resource}
                   />
                 );

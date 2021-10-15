@@ -1,1 +1,1 @@
-export * from './components/modals/BuyUSTModal';
+export * from './components/buttons/BuyUST';
