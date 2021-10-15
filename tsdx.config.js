@@ -18,10 +18,10 @@ module.exports = {
         sourceMap: true,
         inject: true,
         extract: false,
-      })
+      }),
     );
     config.plugins.unshift(
-      images({ include: ['**/*.png', '**/*.jpg', '**/*.svg'] })
+      images({ include: ['**/*.png', '**/*.jpg', '**/*.svg'] }),
     );
     return config;
   },

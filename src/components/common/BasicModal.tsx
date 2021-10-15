@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Dialog, IconButton } from '@mui/material';
-import s from './BasicModal.module.scss';
-import closeIcon from '../../assets/icon-close.svg';
+import Close from '@mui/icons-material/Close';
+import styles from './BasicModal.module.scss';
 
 interface Props {
   onClose: () => void;
@@ -30,15 +30,11 @@ const BasicModal = ({ onClose, open, children, title }: Props) => {
         },
       }}
     >
-      <div className={s.wrapper}>
-        <IconButton
-          className={s.close}
-          onClick={onClose}
-          // style={{ position: 'absolute' }}
-        >
-          <img src={closeIcon} alt="close" />
+      <div className={styles.wrapper}>
+        <IconButton className={styles.close} onClick={onClose}>
+          <Close />
         </IconButton>
-        <p className={s.title}>{title}</p>
+        <p className={styles.title}>{title}</p>
         {children}
       </div>
     </Dialog>

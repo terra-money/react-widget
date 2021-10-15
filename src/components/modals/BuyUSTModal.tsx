@@ -5,7 +5,7 @@ import BasicModal from '../common/BasicModal';
 import bitfinex from '../../assets/bitfinex.svg';
 import kucoin from '../../assets/kucoin.svg';
 import transak from '../../assets/transak.svg';
-import s from './BuyUSTModal.module.scss';
+import styles from './BuyUSTModal.module.scss';
 
 interface Resource {
   name: string;
@@ -15,19 +15,23 @@ interface Resource {
 
 const Card = ({ resource }: { resource: Resource }) => {
   return (
-    <a className={s.card} href={resource.link} target="_blank" rel="noreferrer">
+    <a
+      className={styles.card}
+      href={resource.link}
+      target="_blank"
+      rel="noreferrer"
+    >
       <p>{resource.name}</p>
       <img src={resource.image} alt="" />
     </a>
   );
 };
 
-// Fixme: avoid hardcoded resource
 const exchangeResources: Resource[] = [
   {
     name: 'Bitfinex',
     image: bitfinex,
-    link: 'https://trading.bitfinex.com/t/TERRAUST:USD?demo=true',
+    link: 'https://trading.bitfinex.com/t/TERRAUST:USD',
   },
   {
     name: 'KuCoin',
@@ -36,16 +40,26 @@ const exchangeResources: Resource[] = [
   },
 ];
 
-const withFlatResources: Resource[] = [
-  {
-    name: 'Transak',
-    image: transak,
-    link: 'https://global.transak.com/?apiKey=db70aca0-ca84-4344-8dcc-036f470414fc&cryptoCurrencyList=UST,LUNA&defaultCryptoCurrency=UST&networks=terra',
-  },
-];
+const getFlatResources = (transakApiKey?: string): Resource[] => {
+  return [
+    {
+      name: 'Transak',
+      image: transak,
+      link: `https://global.transak.com/?cryptoCurrencyList=UST,LUNA&defaultCryptoCurrency=UST&networks=terra${
+        transakApiKey ? `&apiKey=${transakApiKey}` : ''
+      }`,
+    },
+  ];
+};
 
-const BuyUSTModal = () => {
+interface Props {
+  transakApiKey?: string;
+}
+
+const BuyUSTModal = ({ transakApiKey }: Props) => {
   const [open, setOpen] = useState(false);
+
+  const withFlatResources = getFlatResources(transakApiKey);
   return (
     <>
       <button
@@ -58,9 +72,9 @@ const BuyUSTModal = () => {
       </button>
       <BasicModal onClose={() => setOpen(false)} open={open} title="Buy UST">
         <>
-          <section className={s.exchange}>
-            <p className={s.subtitle}>Exchanges</p>
-            <div className={s.cardList}>
+          <section className={styles.exchange}>
+            <p className={styles.subtitle}>Exchanges</p>
+            <div className={styles.cardList}>
               {exchangeResources.map((resource: Resource, i: number) => {
                 return (
                   <Card
@@ -72,8 +86,8 @@ const BuyUSTModal = () => {
             </div>
           </section>
           <section>
-            <p className={s.subtitle}>With Flat</p>
-            <div className={s.cardList}>
+            <p className={styles.subtitle}>With Flat</p>
+            <div className={styles.cardList}>
               {withFlatResources.map((resource: Resource, i: number) => {
                 return (
                   <Card

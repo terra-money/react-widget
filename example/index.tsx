@@ -7,6 +7,7 @@ import { BuyUSTModal } from '..';
 const App = () => {
   return (
     <>
+      <h1>react-widget component examples</h1>
       <BuyUSTModal />
     </>
   );
