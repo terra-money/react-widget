@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../../index.scss';
 import BasicModal from '../common/BasicModal';
 import bitfinex from '../../assets/bitfinex.svg';
 import kucoin from '../../assets/kucoin.svg';

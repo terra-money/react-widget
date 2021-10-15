@@ -1,16 +1,19 @@
 @import '../../styles/colors';
+@import '../../styles/base';
 
 .exchange {
   margin-bottom: 32px;
 }
 
 .subtitle {
+  @include primary;
   margin-bottom: 10px;
   font-size: 12px;
   font-weight: 500;
 }
 
 .card {
+  @include a;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +24,7 @@
     border: solid 1px $primary400;
   }
   > p {
+    @include primary;
     font-size: 16px;
     font-weight: 500;
   }

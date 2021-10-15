@@ -11,7 +11,7 @@ npm run build
 
 ```sh
 npm i
-npm run start
+npm run storybook
 ```
 
 ## How to run react-widget example
