@@ -20,6 +20,10 @@
 @mixin a {
   color: inherit;
   text-decoration: none;
+  &:visited,
+  &:-webkit-any-link {
+    text-decoration: none;
+  }
 }
 
 @mixin p {
