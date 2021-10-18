@@ -1,7 +1,11 @@
 @import '../../styles/base';
+@import '../../styles/screens';
 
 .wrapper {
   padding: 58px 40px 40px 40px;
+  @media (max-width: $mobile) {
+    padding: 20px;
+  }
   .close {
     position: absolute;
     right: 20px;

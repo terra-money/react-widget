@@ -2,13 +2,13 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BuyUSTModal } from '..';
+import { BuyUST } from '..';
 
 const App = () => {
   return (
     <>
       <h1>react-widget component examples</h1>
-      <BuyUSTModal />
+      <BuyUST />
     </>
   );
 };

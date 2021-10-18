@@ -24,8 +24,9 @@ const BasicModal = ({ onClose, open, children, title }: Props) => {
       }}
       PaperProps={{
         style: {
-          minWidth: '520px',
-          minHeight: '409px',
+          maxWidth: '520px',
+          margin: '10px',
+          width: '100%',
           borderRadius: '8px',
         },
       }}
