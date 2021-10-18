@@ -1,0 +1,15 @@
+@import '../../styles/colors';
+@import '../../styles/base';
+
+.buy {
+  @include button;
+  color: $primary100;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  > svg {
+    fill: $primary100;
+    font-size: 18px;
+  }
+}
