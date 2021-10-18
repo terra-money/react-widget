@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Dialog, IconButton } from '@mui/material';
 import Close from '@mui/icons-material/Close';
@@ -7,11 +7,10 @@ import styles from './BasicModal.module.scss';
 interface Props {
   onClose: () => void;
   open: boolean;
-  children: React.ReactElement;
   title?: string;
 }
 
-const BasicModal = ({ onClose, open, children, title }: Props) => {
+const BasicModal: FC<Props> = ({ onClose, open, children, title }) => {
   return (
     <Dialog
       onClose={onClose}

@@ -74,34 +74,29 @@ const BuyUSTModal = ({ transakApiKey, onClose, open, title }: Props) => {
   const withFiatResources = getFiatResources(transakApiKey);
   return (
     <BasicModal onClose={onClose} open={open} title={title}>
-      <>
-        <section className={styles.exchange}>
-          <p className={styles.subtitle}>Exchanges</p>
-          <div className={styles.cardList}>
-            {exchangeResources.map((resource: Resource, i: number) => {
-              return (
-                <Card
-                  key={`exchange-resource-${i.toString()}`}
-                  resource={resource}
-                />
-              );
-            })}
-          </div>
-        </section>
-        <section>
-          <p className={styles.subtitle}>With Fiat</p>
-          <div className={styles.cardList}>
-            {withFiatResources.map((resource: Resource, i: number) => {
-              return (
-                <Card
-                  key={`fiat-resource-${i.toString()}`}
-                  resource={resource}
-                />
-              );
-            })}
-          </div>
-        </section>
-      </>
+      <section className={styles.exchange}>
+        <p className={styles.subtitle}>Exchanges</p>
+        <div className={styles.cardList}>
+          {exchangeResources.map((resource: Resource, i: number) => {
+            return (
+              <Card
+                key={`exchange-resource-${i.toString()}`}
+                resource={resource}
+              />
+            );
+          })}
+        </div>
+      </section>
+      <section>
+        <p className={styles.subtitle}>With Fiat</p>
+        <div className={styles.cardList}>
+          {withFiatResources.map((resource: Resource, i: number) => {
+            return (
+              <Card key={`fiat-resource-${i.toString()}`} resource={resource} />
+            );
+          })}
+        </div>
+      </section>
     </BasicModal>
   );
 };
