@@ -23,3 +23,12 @@ cd example/
 npm i
 npm run start
 ```
+
+## How to publish react-widget to npm
+
+```sh
+npm i
+npm run build
+npm login
+npm publish
+```
