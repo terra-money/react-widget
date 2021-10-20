@@ -1,3 +1,4 @@
+import React from 'react';
 import { FC } from 'react';
 import { useNetwork } from './helpers/NetworkProvider';
 import { FINDER } from './helpers/constants';

@@ -1,3 +1,4 @@
+import React from 'react';
 import { AccAddress } from '@terra-money/terra.js';
 import { readAmount, readDenom } from 'terra-utils';
 import { splitTokenText } from './helpers/utility';

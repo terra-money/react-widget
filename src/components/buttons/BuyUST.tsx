@@ -1,5 +1,5 @@
 import ChevronRight from '@mui/icons-material/ChevronRight';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BuyUSTModal } from '../modals/BuyUSTModal';
 import styles from './BuyUST.module.scss';
 

@@ -15,9 +15,9 @@ const App = () => {
     <>
       <h1>react-widget component examples</h1>
       <BuyUST />
-      <TxDescription
-        network={CONFIG}
-      >{`Send 1234567uluna to terra1fs6c6y65c65kkjanjwvmnrfvnm2s58ph88t9ky`}</TxDescription>
+      <TxDescription network={CONFIG}>
+        Send 1234567uluna to terra1fs6c6y65c65kkjanjwvmnrfvnm2s58ph88t9ky
+      </TxDescription>
     </>
   );
 };

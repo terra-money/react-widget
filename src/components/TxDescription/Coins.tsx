@@ -1,3 +1,4 @@
+import React from 'react';
 import { Fragment } from 'react';
 import { useProps } from './helpers/NetworkProvider';
 import Coin from './Coin';

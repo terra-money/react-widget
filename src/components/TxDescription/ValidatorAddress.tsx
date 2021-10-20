@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery } from 'react-query';
 import { truncate } from 'terra-utils';
 import { useLCDClient } from './helpers/NetworkProvider';

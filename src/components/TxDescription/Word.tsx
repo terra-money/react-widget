@@ -1,3 +1,4 @@
+import React from 'react';
 import { isNativeDenom, readDenom } from 'terra-utils';
 
 interface Props {

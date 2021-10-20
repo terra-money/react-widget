@@ -1,3 +1,4 @@
+import React from 'react';
 import { truncate } from 'terra-utils';
 import useTokenContractQuery from './helpers/useTokenContractQuery';
 

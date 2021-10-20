@@ -1,4 +1,5 @@
 /* eslint-disable consistent-return */
+import React from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
 import { TERRA_ASSETS } from './helpers/constants';

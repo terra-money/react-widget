@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { AccAddress, ValAddress } from '@terra-money/terra.js';
 import { ComponentProps } from './helpers/types';
