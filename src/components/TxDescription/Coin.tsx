@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { AccAddress } from '@terra-money/terra.js';
 import { isDenomTerraNative, readAmount, readDenom } from 'terra-utils';
@@ -16,17 +15,21 @@ const Coin = ({ children: coin }: { children: string }) => {
   const lcd = useLCDClient();
   const data = useDenomTrace(coin.replace(amount, ''), lcd);
 
-  const unit = AccAddress.validate(token) ? (
-    <FinderLink address={token}>
-      <TokenAddress>{token}</TokenAddress>
-    </FinderLink>
-  ) : isDenomTerraNative(token) ? (
-    readDenom(token)
-  ) : data ? (
-    <>{formatDenom(data.base_denom)}</>
-  ) : (
-    <>{token}</>
-  );
+  let unit;
+
+  if (AccAddress.validate(token)) {
+    unit = (
+      <FinderLink address={token}>
+        <TokenAddress>{token}</TokenAddress>
+      </FinderLink>
+    );
+  } else if (isDenomTerraNative(token)) {
+    unit = <>{readDenom(token)}</>;
+  } else if (data) {
+    unit = <>{formatDenom(data.base_denom)}</>;
+  } else {
+    unit = <>{token}</>;
+  }
 
   const decimals = tokenInfo?.decimals || DEFAULT_DECIMALS;
 

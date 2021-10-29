@@ -14,13 +14,15 @@ interface Props extends ComponentProps {
 
 const TxDescription = ({ children: sentence, network, config }: Props) => {
   const renderWord = (word: string, index: number) => {
-    let render = <Word bold={!index}>{word}</Word>;
+    let render;
     if (ValAddress.validate(word)) {
       render = <ValidatorAddress>{word}</ValidatorAddress>;
     } else if (AccAddress.validate(word)) {
       render = <TerraAddress>{word}</TerraAddress>;
     } else if (isCoins(word)) {
       render = <Coins>{word}</Coins>;
+    } else {
+      render = <Word bold={!index}>{word}</Word>;
     }
     return render;
   };
