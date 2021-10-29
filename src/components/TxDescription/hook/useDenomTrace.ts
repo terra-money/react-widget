@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { LCDClient } from '@terra-money/terra.js';
@@ -11,18 +9,20 @@ const useDenomTrace = (denom = '', lcd: LCDClient) => {
   const { data } = useQuery(
     ['denomTrace', hash],
     async () => {
-      const { denom_trace } = (await lcd.ibcTransfer.denomTrace(
+      const { denomTrace } = (await lcd.ibcTransfer.denomTrace(
         hash,
       )) /* TODO: Remove force typing on terra.js fixed */ as unknown as {
-        denom_trace: DenomTrace;
+        denomTrace: DenomTrace;
       };
-      return denom_trace;
+      return denomTrace;
     },
     { enabled: denom.startsWith('ibc') },
   );
 
   useEffect(() => {
-    data && setIBCData(data);
+    if (data) {
+      setIBCData(data);
+    }
   }, [data]);
 
   return ibcData;

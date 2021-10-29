@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import React from 'react';
 import axios from 'axios';
 import { useQuery } from 'react-query';
@@ -33,7 +32,7 @@ const TerraAddress = ({ children: address }: { children: string }) => {
   const getContractName = (contractAddress: string) => {
     const contract = contracts?.[contractAddress];
     if (!contract) {
-      return;
+      return undefined;
     }
     const { protocol, name: contractName } = contract;
 

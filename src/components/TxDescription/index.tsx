@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { Fragment } from 'react';
 import { AccAddress, ValAddress } from '@terra-money/terra.js';
 import { ComponentProps } from './helpers/types';
@@ -14,16 +13,17 @@ interface Props extends ComponentProps {
 }
 
 const TxDescription = ({ children: sentence, network, config }: Props) => {
-  const renderWord = (word: string, index: number) =>
-    ValAddress.validate(word) ? (
-      <ValidatorAddress>{word}</ValidatorAddress>
-    ) : AccAddress.validate(word) ? (
-      <TerraAddress>{word}</TerraAddress>
-    ) : isCoins(word) ? (
-      <Coins>{word}</Coins>
-    ) : (
-      <Word bold={!index}>{word}</Word>
-    );
+  const renderWord = (word: string, index: number) => {
+    let render = <Word bold={!index}>{word}</Word>;
+    if (ValAddress.validate(word)) {
+      render = <ValidatorAddress>{word}</ValidatorAddress>;
+    } else if (AccAddress.validate(word)) {
+      render = <TerraAddress>{word}</TerraAddress>;
+    } else if (isCoins(word)) {
+      render = <Coins>{word}</Coins>;
+    }
+    return render;
+  };
 
   return (
     <PropsProvider value={{ network, config }}>
