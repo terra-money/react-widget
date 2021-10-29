@@ -18,7 +18,10 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "precommit": "lint-staged",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -89,8 +92,9 @@
     "terra-utils": "^1.1.1"
   },
   "lint-staged": {
-    "./src/**/*.{ts,tsx}": [
+    "src/{**/*,*}/*.{ts,tsx}": [
       "eslint --fix",
+      "prettier --write",
       "git add"
     ]
   },
