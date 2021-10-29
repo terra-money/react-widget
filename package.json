@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,10 +18,14 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "precommit": "lint-staged",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "react-query": "^3.27.0"
   },
   "name": "@terra-money/react-widget",
   "author": "Terra <engineering@terra.money> (https://terra.money)",
@@ -82,11 +86,16 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.3",
-    "qs": "^6.10.1"
+    "@terra-money/terra.js": "^2.1.19",
+    "axios": "^0.21.4",
+    "qs": "^6.10.1",
+    "terra-utils": "^1.1.1",
+    "react-query": "^3.27.0"
   },
   "lint-staged": {
-    "./src/**/*.{ts,tsx}": [
+    "src/{**/*,*}/*.{ts,tsx}": [
       "eslint --fix",
+      "prettier --write",
       "git add"
     ]
   },
