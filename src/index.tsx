@@ -1,2 +1,2 @@
 export * from './components/buttons/BuyUST';
-export * from './components/txDescription';
+export * from './components/tx-description';
