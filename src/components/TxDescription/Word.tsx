@@ -1,5 +1,5 @@
 import React from 'react';
-import { isNativeDenom, readDenom } from 'terra-utils';
+import { isDenomTerraNative, readDenom } from 'terra-utils';
 
 interface Props {
   children: string;
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Word = ({ children: word, bold }: Props) => {
-  const content = isNativeDenom(word) ? readDenom(word) : word;
+  const content = isDenomTerraNative(word) ? readDenom(word) : word;
   return bold ? <strong>{content}</strong> : <span>{content}</span>;
 };
 

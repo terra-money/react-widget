@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { truncate } from 'terra-utils';
 import { useLCDClient } from './helpers/NetworkProvider';
@@ -10,9 +10,17 @@ const ValidatorAddress = ({ children: address }: { children: string }) => {
     lcd.staking.validator(address),
   );
 
+  const [moniker, setMoniker] = useState<string>();
+
+  useEffect(() => {
+    if (data) {
+      setMoniker(data.description.moniker);
+    }
+  }, [data]);
+
   return (
     <FinderLink address={address} validator>
-      {data?.description.moniker ?? truncate(address)}
+      {moniker ?? truncate(address)}
     </FinderLink>
   );
 };

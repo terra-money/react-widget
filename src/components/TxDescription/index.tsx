@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import React, { Fragment } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { AccAddress, ValAddress } from '@terra-money/terra.js';
 import { ComponentProps } from './helpers/types';
 import { isCoins } from './helpers/utility';
@@ -9,8 +8,6 @@ import ValidatorAddress from './ValidatorAddress';
 import TerraAddress from './TerraAddress';
 import Coins from './Coins';
 import Word from './Word';
-
-const queryClient = new QueryClient();
 
 interface Props extends ComponentProps {
   children: string;
@@ -30,14 +27,12 @@ const TxDescription = ({ children: sentence, network, config }: Props) => {
 
   return (
     <PropsProvider value={{ network, config }}>
-      <QueryClientProvider client={queryClient}>
-        {sentence.split(' ').map((word, i) => (
-          <Fragment key={`fg-${i.toString()}`}>
-            {!!i && ' '}
-            {renderWord(word, i)}
-          </Fragment>
-        ))}
-      </QueryClientProvider>
+      {sentence.split(' ').map((word, i) => (
+        <Fragment key={`fg-${i.toString()}`}>
+          {!!i && ' '}
+          {renderWord(word, i)}
+        </Fragment>
+      ))}
     </PropsProvider>
   );
 };

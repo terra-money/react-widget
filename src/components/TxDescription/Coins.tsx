@@ -1,5 +1,4 @@
-import React from 'react';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { useProps } from './helpers/NetworkProvider';
 import Coin from './Coin';
 
@@ -15,8 +14,9 @@ const Coins = ({ children }: { children: string }) => {
 
   const coins = children.split(',');
 
-  if (coins.length > 1 && !config?.showAllCoins)
+  if (coins.length > 1 && !config?.showAllCoins) {
     return <strong>multiple coins</strong>;
+  }
 
   return (
     <>
