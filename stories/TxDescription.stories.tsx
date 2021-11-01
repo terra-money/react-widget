@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import TxDescription from '../src/components/TxDescription';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { TxDescription } from '../src/components/tx-description';
 
 const meta: Meta = {
   title: 'TxDescription',
@@ -18,10 +19,14 @@ const CONFIG = {
   chainID: 'bombay-12',
 };
 
+const queryClient = new QueryClient();
+
 const Template: Story = () => (
-  <TxDescription
-    network={CONFIG}
-  >{`Send 1234567uluna to terra1fs6c6y65c65kkjanjwvmnrfvnm2s58ph88t9ky`}</TxDescription>
+  <QueryClientProvider client={queryClient}>
+    <TxDescription network={CONFIG}>
+      Send 1234567uluna to terra1fs6c6y65c65kkjanjwvmnrfvnm2s58ph88t9ky
+    </TxDescription>
+  </QueryClientProvider>
 );
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
