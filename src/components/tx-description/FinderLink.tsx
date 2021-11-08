@@ -13,6 +13,7 @@ const FinderLink: FC<Props> = ({ children, address, validator }) => {
   return (
     <a
       href={`${FINDER}/${chainID}/${path}/${address}`}
+      onClick={(e) => e.stopPropagation()}
       target="_blank"
       rel="noreferrer"
     >
