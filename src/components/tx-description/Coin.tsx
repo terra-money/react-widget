@@ -13,7 +13,7 @@ const Coin = ({ children: coin }: { children: string }) => {
   const { amount, token } = splitTokenText(coin);
   const { data: tokenInfo } = useTokenContractQuery(token);
   const lcd = useLCDClient();
-  const data = useDenomTrace(coin.replace(amount, ''), lcd);
+  const { data } = useDenomTrace(coin.replace(amount, ''), lcd);
 
   let unit;
 

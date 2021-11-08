@@ -1,31 +1,24 @@
-import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { LCDClient } from '@terra-money/terra.js';
 import { DenomTrace } from '@terra-money/terra.js/dist/core/ibc-transfer/DenomTrace';
 
+/* TODO: Remove force typing on terra.js fixed */
+/* eslint-disable camelcase */
+
 const useDenomTrace = (denom = '', lcd: LCDClient) => {
   const hash = denom.replace('ibc/', '');
-  const [ibcData, setIBCData] = useState<DenomTrace>();
-  const { data } = useQuery(
+  return useQuery(
     ['denomTrace', hash],
     async () => {
-      const { denomTrace } = (await lcd.ibcTransfer.denomTrace(
+      const { denom_trace: dt } = (await lcd.ibcTransfer.denomTrace(
         hash,
-      )) /* TODO: Remove force typing on terra.js fixed */ as unknown as {
-        denomTrace: DenomTrace;
+      )) as unknown as {
+        denom_trace: DenomTrace;
       };
-      return denomTrace;
+      return dt;
     },
     { enabled: denom.startsWith('ibc') },
   );
-
-  useEffect(() => {
-    if (data) {
-      setIBCData(data);
-    }
-  }, [data]);
-
-  return ibcData;
 };
 
 export default useDenomTrace;

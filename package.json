@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "ISC",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -86,11 +86,11 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.3",
-    "@terra-money/terra.js": "^2.1.19",
+    "@terra-money/terra.js": "^2.1.22",
     "axios": "^0.21.4",
     "qs": "^6.10.1",
-    "terra-utils": "^1.1.1",
-    "react-query": "^3.27.0"
+    "react-query": "^3.27.0",
+    "terra-utils": "^1.1.1"
   },
   "lint-staged": {
     "src/{**/*,*}/*.{ts,tsx}": [

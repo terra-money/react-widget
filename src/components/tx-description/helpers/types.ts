@@ -8,3 +8,17 @@ export interface ComponentProps {
 export interface NetworkConfig extends LCDClientConfig {
   name: string;
 }
+
+export interface TokenInfo {
+  protocol?: string;
+  symbol: string;
+  token: string;
+  icon?: string;
+  decimals?: number;
+}
+
+export interface ContractInfo {
+  protocol: string;
+  name: string;
+  icon: string;
+}
