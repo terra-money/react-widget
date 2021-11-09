@@ -35,7 +35,7 @@ const Coin = ({ children: coin }: { children: string }) => {
 
   return (
     <strong>
-      {readAmount(amount, { decimals })} {unit}
+      {readAmount(amount, { decimals, comma: true })} {unit}
     </strong>
   );
 };
