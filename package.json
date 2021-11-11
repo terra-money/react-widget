@@ -85,7 +85,6 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.3",
-    "axios": "^0.21.4",
     "qs": "^6.10.1"
   },
   "lint-staged": {
