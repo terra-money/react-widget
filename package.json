@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "ISC",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,8 +24,7 @@
     "lint-staged": "lint-staged"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-query": "^3.27.0"
+    "react": ">=16"
   },
   "name": "@terra-money/react-widget",
   "author": "Terra <engineering@terra.money> (https://terra.money)",
@@ -86,11 +85,8 @@
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.3",
-    "@terra-money/terra.js": "^2.1.22",
     "axios": "^0.21.4",
-    "qs": "^6.10.1",
-    "react-query": "^3.27.0",
-    "terra-utils": "^1.1.2"
+    "qs": "^6.10.1"
   },
   "lint-staged": {
     "src/{**/*,*}/*.{ts,tsx}": [
