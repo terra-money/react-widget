@@ -19,8 +19,11 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/no-array-index-key': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
     'no-use-before-define': 'off',
