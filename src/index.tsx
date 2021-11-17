@@ -1,1 +1,1 @@
-export * from './components/buttons/BuyUST';
+export { default as Buy } from './components/buttons/Buy';

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { BuyUST } from '../src/components/buttons/BuyUST';
+import Buy from '../src/components/buttons/Buy';
 
 const meta: Meta = {
-  title: 'BuyUST',
-  component: BuyUST,
+  title: 'Buy',
+  component: Buy,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
@@ -12,7 +12,12 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: Story = () => <BuyUST />;
+const Template: Story = () => (
+  <div>
+    <Buy currency="UST" />
+    <Buy currency="Luna" />
+  </div>
+);
 
 // By passing using the Args format for exported stories, you can control the props for a component for reuse in a test
 // https://storybook.js.org/docs/react/workflows/unit-testing
