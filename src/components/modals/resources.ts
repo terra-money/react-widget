@@ -4,7 +4,6 @@ import bitfinex from '../../assets/bitfinex.svg';
 import kucoin from '../../assets/kucoin.svg';
 import transak from '../../assets/transak.svg';
 import huobi from '../../assets/huobi.svg';
-import okex from '../../assets/okex.svg';
 import { Currency } from '../buttons/Buy';
 
 export interface Resource {
@@ -18,14 +17,9 @@ type Resources = Record<string, Resource[]>;
 export const exchanges: Resources = {
   Luna: [
     {
-      name: 'Bitfinex',
-      image: bitfinex,
-      link: 'https://trading.bitfinex.com/t/LUNA:USD',
-    },
-    {
-      name: 'Okex',
-      image: okex,
-      link: 'https://www.okex.com/trade-spot/luna-usdt',
+      name: 'Binance',
+      image: binance,
+      link: 'https://www.binance.com/en/trade/LUNA_USDT',
     },
     {
       name: 'KuCoin',
@@ -38,9 +32,9 @@ export const exchanges: Resources = {
       link: 'https://www.huobi.com/en-us/exchange/luna_usdt/',
     },
     {
-      name: 'Binance',
-      image: binance,
-      link: 'https://www.binance.com/en/trade/LUNA_USDT',
+      name: 'Bitfinex',
+      image: bitfinex,
+      link: 'https://trading.bitfinex.com/t/LUNA:USD',
     },
   ],
   UST: [
